@@ -1,10 +1,27 @@
 package org.tic_tac_toe;
-     
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         System.out.print(Welcome());
         Board board = new Board();
         board.printBoard();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Hello player 1, what's your name?");
+        String name1 = scanner.nextLine();
+
+        System.out.println("Hello player 2, what's your name?");
+        String name2 = scanner.nextLine();
+
+        Player player1 = new Player(name1, 'X');
+        Player player2 = new Player(name2, 'O');
+
+        System.out.println(player1.getName());
+        System.out.println(player1.getMark());
+        System.out.println(player2.getName());
+        System.out.println(player2.getMark());
     }
 
     private static String Welcome(){
@@ -22,5 +39,6 @@ public class Main {
                         "\r\n\n";
 
     }
+
 
 }
