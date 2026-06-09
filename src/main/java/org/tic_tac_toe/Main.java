@@ -10,21 +10,11 @@ public class Main {
         Game game = new Game();
 
 
-        /* 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Hello player 1, what's your name?");
-        String name1 = scanner.nextLine();
+        Player player1 = game.createPlayer(1,'X') ;
+        Player player2 = game.createPlayer(2,'O') ;
 
-        System.out.println("Hello player 2, what's your name?");
-        String name2 = scanner.nextLine();
-    */
-        Player player1 = game.createPlayer('X') ;
-        Player player2 = game.createPlayer('O') ;
-
-        System.out.println(player1.getName());
-        System.out.println(player1.getMark());
-        System.out.println(player2.getName());
-        System.out.println(player2.getMark());
+        System.out.println("\nWelcome " + player1.getName() + ", you play with " + player1.getMark());
+        System.out.println("Welcome " + player2.getName() + ", you play with " + player2.getMark());
     }
 
     private static String Welcome(){
