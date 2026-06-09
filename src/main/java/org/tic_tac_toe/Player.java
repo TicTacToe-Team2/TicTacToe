@@ -4,7 +4,7 @@ public class Player {
     private String name;
     private char mark;
 
-    public Player(String name, char mark){
+    public Player(String name, char mark) {
         this.name = name;
         this.mark = mark;
     }
@@ -24,4 +24,5 @@ public class Player {
     public void setMark(char mark) {
         this.mark = mark;
     }
+
 }
