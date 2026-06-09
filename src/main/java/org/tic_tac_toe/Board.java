@@ -25,19 +25,41 @@ public class Board {
         }
     }
    public void printBoard() {
-    System.out.println("    0   1   2");
-    System.out.println("  ┌───┬───┬───┐");
+        System.out.println("    0   1   2");
+        System.out.println("  ┌───┬───┬───┐");
 
-    for (int row = 0; row < 3; row++) {
-        System.out.print(row + " │");
-        for (int col = 0; col < 3; col++) {
-            System.out.print(" " + board[row][col] + " │");
+        for (int row = 0; row < 3; row++) {
+            System.out.print(row + " │");
+            for (int col = 0; col < 3; col++) {
+                System.out.print(" " + board[row][col] + " │");
+            }
+            System.out.println();
+            if (row < 2) {
+                System.out.println("  ├───┼───┼───┤");
+            }
         }
-        System.out.println();
-        if (row < 2) {
-            System.out.println("  ├───┼───┼───┤");
-        }
+        System.out.println("  └───┴───┴───┘");
     }
-    System.out.println("  └───┴───┴───┘");
-}
+
+    public void placeMark(int row, int column, char mark) {
+        board[row][column] = mark;
+    }
+
+    public void printMarks() {
+        System.out.println("    0   1   2");
+        System.out.println("  ┌───┬───┬───┐");
+
+        for (int row = 0; row < 3; row++) {
+            System.out.print(row + " │");
+            for (int col = 0; col < 3; col++) {
+                System.out.print(" " + board[row][col] + " │");
+            }
+            System.out.println();
+            if (row < 2) {
+                System.out.println("  ├───┼───┼───┤");
+            }
+        }
+        System.out.println("  └───┴───┴───┘");
+    }
+
 }
