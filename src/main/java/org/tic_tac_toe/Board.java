@@ -58,6 +58,7 @@ public class Board {
                 }
             }
         }
+        System.out.println("It's a draw! Play again 🤝 ");
         return true;
     }
 

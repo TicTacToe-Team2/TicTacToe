@@ -10,7 +10,7 @@ public class Game {
   private Scanner scanner = new Scanner(System.in);
 
   public Player createPlayer(int numPlayer, char mark) {
-    System.out.println("Hello player " + numPlayer + ", what's your name?: ");
+    System.out.print("Hello player " + numPlayer + ", what's your name?: ");
     String name = scanner.nextLine();
     return new Player(name, mark);
   }
@@ -25,9 +25,10 @@ public class Game {
     Player currentPlayer = player1;
 
     while (!board.isBoardFull()) {
+      String mark = currentPlayer.getMark() == 'X' ? "❌" : "⭕️";
 
-      int row = askPosition("\n" + currentPlayer.getName() + ", it's your turn. Please add a row: ");
-      int column = askPosition("\n" + currentPlayer.getName() + ",  please add a column: ");
+      int row = askPosition("\n" + mark + " " + currentPlayer.getName() +", it's your turn. Please add a row: ");
+      int column = askPosition("\n" + mark + " " + currentPlayer.getName() + ",  please add a column: ");
 
       if (board.isPositionEmpty(row, column)) {
         board.getBoard()[row][column] = currentPlayer.getMark();

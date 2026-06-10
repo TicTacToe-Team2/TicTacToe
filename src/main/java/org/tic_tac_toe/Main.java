@@ -1,7 +1,5 @@
 package org.tic_tac_toe;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         System.out.print(Welcome());
@@ -14,7 +12,7 @@ public class Main {
     private static String Welcome(){
         return "Welcome to Tic-Tac-Toe!\r\n" + 
                         "\r\n" + 
-                        "Get ready for an epic battle of X vs O.\r\n" + 
+                        "Get ready for an epic battle of ❌ vs ⭕️.\r\n" +
                         "\r\n" + 
                         "Rules:\r\n" + 
                         "\tPlayer X goes first.\r\n" + 
