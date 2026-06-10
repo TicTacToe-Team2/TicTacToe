@@ -24,6 +24,8 @@ public class Board {
             }
         }
     }
+
+    // Method para pintar el tablero vacío
    public void printBoard() {
         System.out.println("    0   1   2");
         System.out.println("  ┌───┬───┬───┐");
@@ -41,10 +43,21 @@ public class Board {
         System.out.println("  └───┴───┴───┘");
     }
 
-    public void placeMark(int row, int column, char mark) {
-        board[row][column] = mark;
+    // Method para comprobar que una posición del tablero está vacío
+    public boolean isPositionEmpty(int row, int column) {
+        return board[row][column] != ' ';
     }
 
+    // Method para colocar una ficha (X o O) en el tablero
+    public void placeMark(int row, int column, char mark) {
+        if (isPositionEmpty(row, column)) {
+            board[row][column] = mark;
+        } else {
+            System.out.println("Please choose another position to place your mark.");
+        }
+    }
+
+    // Method para pintar el tablero con la ficha colocada
     public void printMarks() {
         System.out.println("    0   1   2");
         System.out.println("  ┌───┬───┬───┐");
