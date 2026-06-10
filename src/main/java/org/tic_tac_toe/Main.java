@@ -5,15 +5,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         System.out.print(Welcome());
-        Board board = new Board();
-        board.printBoard();
+       
+       // Board board = new Board();
+       // board.printBoard();
 
         Game game = new Game();
 
-        Player player1 = game.createPlayer(1,'X') ;
-        Player player2 = game.createPlayer(2,'O') ;
+        //Player player1 = game.createPlayer(1,'X') ;
+        //Player player2 = game.createPlayer(2,'O') ;
 
-        System.out.println("\nWelcome " + player1.getName() + ", you play with " + player1.getMark());
+        /*System.out.println("\nWelcome " + player1.getName() + ", you play with " + player1.getMark());
         System.out.println("Welcome " + player2.getName() + ", you play with " + player2.getMark());
 
         Scanner scanner=new Scanner(System.in);
@@ -31,6 +32,9 @@ public class Main {
 
         board.placeMark(row, column, mark);
         board.printMarks();
+    }
+*/
+        game.startGame();
     }
 
     private static String Welcome(){

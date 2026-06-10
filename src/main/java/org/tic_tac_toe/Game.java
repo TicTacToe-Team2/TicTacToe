@@ -5,35 +5,62 @@ import java.util.Scanner;
 
 public class Game {
 
-    private boolean winner = false;
-    private int numOfMovements = 0;
+  private boolean winner = false;
+  
 
-    private Scanner scanner = new Scanner(System.in);
+  private Scanner scanner = new Scanner(System.in);
 
-      public Player createPlayer(int numPlayer, char mark){
-        System.out.println("Hello player " +  numPlayer + ", what's your name?: ");
-        String name = scanner.nextLine();
-        return new Player(name, mark);
+  public Player createPlayer(int numPlayer, char mark) {
+    System.out.println("Hello player " + numPlayer + ", what's your name?: ");
+    String name = scanner.nextLine();
+    return new Player(name, mark);
+  }
+
+  public void startGame() {
+    Board board = new Board();
+    board.printBoard();
+
+    Player player1 = createPlayer(1, 'X');
+    Player player2 = createPlayer(2, 'O');
+
+    Player currentPlayer = player1; 
+    while (!board.isBoardFull()) {
+       System.out.println("\n" + currentPlayer.getName() + ", it's your turn. Please add a row: ");      
+       int row = scanner.nextInt();
+       scanner.nextLine();  
+        System.out.println("\n" + currentPlayer.getName() + ",  please add a column: ");
+        int column = scanner.nextInt();
+        
+        if (board.isPositionEmpty(row, column)) {
+            board.getBoard()[row][column] = currentPlayer.getMark();
+            board.printBoard();
+            
+            // Aquí se debería comprobar si el jugador actual ha ganado
+            // Si ha ganado, se establece winner a true y se sale del bucle
+            // Si no ha ganado, se cambia al siguiente jugador
+            currentPlayer = (currentPlayer == player1) ? player2 : player1;
+        } else {
+            System.out.println("This position is already occupied. Please choose another one.");
+        }
       }
 
-      /*
-      Para terminar juego:
-      - todas las casillas llenas
-      - un jugador gana
 
-      Para ganar:
-      - 3 fichas iguales en horizontal, vertical, o diagonal
-           --> cómo comprobamos:
-                1. si hay una ficha colocada
-                2. si hay 3 en raya
-       */
+  
+  }
+  /*
+   * Para terminar juego:
+   * - todas las casillas llenas
+   * - un jugador gana
+   * 
+   * Para ganar:
+   * - 3 fichas iguales en horizontal, vertical, o diagonal
+   * --> cómo comprobamos:
+   * 1. si hay una ficha colocada
+   * 2. si hay 3 en raya
+   */
 
+  public void endGame() {
 
+  }
 
-    public void endGame(){
-
-    }
-
-          
-     
 }
