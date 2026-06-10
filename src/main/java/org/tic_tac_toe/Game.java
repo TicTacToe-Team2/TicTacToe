@@ -44,9 +44,28 @@ public class Game {
         }
       }
 
-
+   
   
   }
+
+   private int askPosition(String message){
+   int value;
+
+   while (true) {
+    System.out.println(message);
+
+    if(scanner.hasNextInt()){
+      value = scanner.nextInt();
+
+    scanner.nextLine();
+
+    if(value >= 0 && value <= 2){
+      return value;
+    }
+    System.out.println("Invalid " + value + ". Please enter a number between 0 and 2.");
+    } 
+   }
+   }
   /*
    * Para terminar juego:
    * - todas las casillas llenas

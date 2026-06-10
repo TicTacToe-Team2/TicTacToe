@@ -6,34 +6,12 @@ public class Main {
     public static void main(String[] args) {
         System.out.print(Welcome());
        
-       // Board board = new Board();
-       // board.printBoard();
 
         Game game = new Game();
 
-        //Player player1 = game.createPlayer(1,'X') ;
-        //Player player2 = game.createPlayer(2,'O') ;
+        
+    
 
-        /*System.out.println("\nWelcome " + player1.getName() + ", you play with " + player1.getMark());
-        System.out.println("Welcome " + player2.getName() + ", you play with " + player2.getMark());
-
-        Scanner scanner=new Scanner(System.in);
-
-        System.out.println("Add a row");
-        int row = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.println("Add a column");
-        int column = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.println("Add your mark (X / O)");
-        char mark = scanner.next().charAt(0);
-
-        board.placeMark(row, column, mark);
-        board.printMarks();
-    }
-*/
         game.startGame();
     }
 
