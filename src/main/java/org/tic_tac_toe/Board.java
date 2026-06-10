@@ -45,7 +45,20 @@ public class Board {
 
     // Method para comprobar que una posición del tablero está vacío
     public boolean isPositionEmpty(int row, int column) {
-        return board[row][column] != ' ';
+        return board[row][column] == ' ';
+    }
+
+    // Method para comprobar si el tablero esta lleno
+
+    public boolean isBoardFull() {
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 3; column++){
+                if (board[row][column]== ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     // Method para colocar una ficha (X o O) en el tablero
