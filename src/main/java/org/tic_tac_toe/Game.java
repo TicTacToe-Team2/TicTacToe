@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Game {
 
   private boolean winner = false;
-  
 
   private Scanner scanner = new Scanner(System.in);
 
@@ -23,49 +22,48 @@ public class Game {
     Player player1 = createPlayer(1, 'X');
     Player player2 = createPlayer(2, 'O');
 
-    Player currentPlayer = player1; 
+    Player currentPlayer = player1;
     while (!board.isBoardFull()) {
-       System.out.println("\n" + currentPlayer.getName() + ", it's your turn. Please add a row: ");      
-       int row = scanner.nextInt();
-       scanner.nextLine();  
-        System.out.println("\n" + currentPlayer.getName() + ",  please add a column: ");
-        int column = scanner.nextInt();
-        
-        if (board.isPositionEmpty(row, column)) {
-            board.getBoard()[row][column] = currentPlayer.getMark();
-            board.printBoard();
-            
-            // Aquí se debería comprobar si el jugador actual ha ganado
-            // Si ha ganado, se establece winner a true y se sale del bucle
-            // Si no ha ganado, se cambia al siguiente jugador
-            currentPlayer = (currentPlayer == player1) ? player2 : player1;
-        } else {
-            System.out.println("This position is already occupied. Please choose another one.");
-        }
-      }
 
-   
-  
+      int row = askPosition("\n" + currentPlayer.getName() + ", it's your turn. Please add a row: ");
+      int column = askPosition("\n" + currentPlayer.getName() + ",  please add a column: ");
+
+      if (board.isPositionEmpty(row, column)) {
+        board.getBoard()[row][column] = currentPlayer.getMark();
+        board.printBoard();
+
+        // Aquí se debería comprobar si el jugador actual ha ganado
+        // Si ha ganado, se establece winner a true y se sale del bucle
+        // Si no ha ganado, se cambia al siguiente jugador
+        currentPlayer = (currentPlayer == player1) ? player2 : player1;
+      } else {
+        System.out.println("This position is already occupied. Please choose another one.");
+      }
+    }
+
   }
 
-   private int askPosition(String message){
-   int value;
+  private int askPosition(String message) {
+    int value;
 
-   while (true) {
-    System.out.println(message);
+    while (true) {
+      System.out.println(message);
 
-    if(scanner.hasNextInt()){
-      value = scanner.nextInt();
+      if (scanner.hasNextInt()) {
+        value = scanner.nextInt();
+        scanner.nextLine();
 
-    scanner.nextLine();
-
-    if(value >= 0 && value <= 2){
-      return value;
+        if (value >= 0 && value <= 2) {
+          return value;
+        }
+        System.out.println("Invalid position. Please enter a number between 0 and 2.");
+      }
+      else{
+          System.out.println("Invalid input. Please enter a number.");
+          scanner.next();
+        }
     }
-    System.out.println("Invalid " + value + ". Please enter a number between 0 and 2.");
-    } 
-   }
-   }
+  }
   /*
    * Para terminar juego:
    * - todas las casillas llenas
