@@ -23,6 +23,7 @@ public class Game {
     Player player2 = createPlayer(2, 'O');
 
     Player currentPlayer = player1;
+
     while (!board.isBoardFull()) {
 
       int row = askPosition("\n" + currentPlayer.getName() + ", it's your turn. Please add a row: ");
@@ -31,6 +32,11 @@ public class Game {
       if (board.isPositionEmpty(row, column)) {
         board.getBoard()[row][column] = currentPlayer.getMark();
         board.printBoard();
+
+        if (board.checkWinner(currentPlayer.getMark())) {
+          System.out.println("\n 🎉 Congratulations! " + currentPlayer.getName() + " wins! 🎉");
+          break;
+        }
 
         // Aquí se debería comprobar si el jugador actual ha ganado
         // Si ha ganado, se establece winner a true y se sale del bucle
@@ -64,17 +70,8 @@ public class Game {
         }
     }
   }
-  /*
-   * Para terminar juego:
-   * - todas las casillas llenas
-   * - un jugador gana
-   * 
-   * Para ganar:
-   * - 3 fichas iguales en horizontal, vertical, o diagonal
-   * --> cómo comprobamos:
-   * 1. si hay una ficha colocada
-   * 2. si hay 3 en raya
-   */
+
+
 
   public void endGame() {
 
