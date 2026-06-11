@@ -86,7 +86,7 @@ public class Board {
     }
 
     // Method to check rows
-    private boolean checkRows(char mark){
+    public boolean checkRows(char mark){
         for (int row = 0; row < 3; row++) {
             if (board[row][0] == mark && board[row][1] == mark && board[row][2] == mark) {
                 return true;
@@ -96,7 +96,7 @@ public class Board {
     }
 
     // Method to check columns
-    private boolean checkColumns(char mark){
+    public boolean checkColumns(char mark){
         for (int column = 0; column < 3; column++) {
             if (board[0][column] == mark && board[1][column] == mark && board[2][column] == mark) {
                 return true;
@@ -106,7 +106,7 @@ public class Board {
     }
 
     // Method to check diagonal
-    private boolean checkDiagonals(char mark) {
+    public boolean checkDiagonals(char mark) {
         if (board[0][0] == mark && board[1][1] == mark && board[2][2] == mark) {
             return true;
         }
