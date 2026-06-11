@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 public class Game {
 
-  private boolean winner = false;
-
   private Scanner scanner = new Scanner(System.in);
 
   public Player createPlayer(int numPlayer, char mark) {
@@ -46,10 +44,10 @@ public class Game {
       } else {
         System.out.println("This position is already occupied. Please choose another one.");
       }
+      //scanner.close();
     }
 
   }
-
   private int askPosition(String message) {
     int value;
 
@@ -71,11 +69,6 @@ public class Game {
         }
     }
   }
-
-
-
-  public void endGame() {
-
   }
 
-}
+
