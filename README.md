@@ -10,8 +10,10 @@ Two players take turns placing their marks (**X** and **O**) on a 3x3 board. The
 
 ---
 ## Demo
+<p align="center">
+  <img src="./assets/demo-tictactoe.gif" alt="Game Demo" width="350">
+</p>
 
-![Game Demo](./assets/demo-tictactoe.gif)
 ---
 
 ## Features
