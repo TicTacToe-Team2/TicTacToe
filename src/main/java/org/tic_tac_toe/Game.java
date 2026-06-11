@@ -61,7 +61,7 @@ public class Game {
         if (value >= 0 && value <= 2) {
           return value;
         }
-        System.out.println("Invalid position. Please enter a number between 0 and 2.");
+        System.out.println("Invalid input. Please enter a number between 0 and 2.");
       }
       else{
           System.out.println("Invalid input. Please enter a number.");
