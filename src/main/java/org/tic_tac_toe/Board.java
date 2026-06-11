@@ -13,10 +13,6 @@ public class Board {
         return board;
     }
 
-    public void setBoard(char[][] board) {
-        this.board = board;
-    }
-
     private void initializeBoard() {
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 3; column++) {
@@ -58,6 +54,7 @@ public class Board {
                 }
             }
         }
+        System.out.println("It's a draw! Play again 🤝 ");
         return true;
     }
 
@@ -88,4 +85,39 @@ public class Board {
         System.out.println("  └───┴───┴───┘");
     }
 
+    // Method to check rows
+    private boolean checkRows(char mark){
+        for (int row = 0; row < 3; row++) {
+            if (board[row][0] == mark && board[row][1] == mark && board[row][2] == mark) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Method to check columns
+    private boolean checkColumns(char mark){
+        for (int column = 0; column < 3; column++) {
+            if (board[0][column] == mark && board[1][column] == mark && board[2][column] == mark) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Method to check diagonal
+    private boolean checkDiagonals(char mark) {
+        if (board[0][0] == mark && board[1][1] == mark && board[2][2] == mark) {
+            return true;
+        }
+
+        if (board[0][2] == mark && board[1][1] == mark && board[2][0] == mark) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkWinner(char mark) {
+        return checkRows(mark) || checkColumns(mark) || checkDiagonals(mark);
+    }
 }

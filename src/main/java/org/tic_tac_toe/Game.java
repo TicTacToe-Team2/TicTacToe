@@ -5,12 +5,10 @@ import java.util.Scanner;
 
 public class Game {
 
-  private boolean winner = false;
-
   private Scanner scanner = new Scanner(System.in);
 
   public Player createPlayer(int numPlayer, char mark) {
-    System.out.println("Hello player " + numPlayer + ", what's your name?: ");
+    System.out.print("Hello player " + numPlayer + ", what's your name?: ");
     String name = scanner.nextLine();
     return new Player(name, mark);
   }
@@ -23,14 +21,21 @@ public class Game {
     Player player2 = createPlayer(2, 'O');
 
     Player currentPlayer = player1;
-    while (!board.isBoardFull()) {
 
-      int row = askPosition("\n" + currentPlayer.getName() + ", it's your turn. Please add a row: ");
-      int column = askPosition("\n" + currentPlayer.getName() + ",  please add a column: ");
+    while (!board.isBoardFull()) {
+      String mark = currentPlayer.getMark() == 'X' ? "❌" : "⭕️";
+
+      int row = askPosition("\n" + mark + " " + currentPlayer.getName() +", it's your turn. Please add a row: ");
+      int column = askPosition("\n" + mark + " " + currentPlayer.getName() + ",  please add a column: ");
 
       if (board.isPositionEmpty(row, column)) {
         board.getBoard()[row][column] = currentPlayer.getMark();
         board.printBoard();
+
+        if (board.checkWinner(currentPlayer.getMark())) {
+          System.out.println("\n 🎉 Congratulations! " + currentPlayer.getName() + " wins! 🎉");
+          break;
+        }
 
         // Aquí se debería comprobar si el jugador actual ha ganado
         // Si ha ganado, se establece winner a true y se sale del bucle
@@ -39,10 +44,10 @@ public class Game {
       } else {
         System.out.println("This position is already occupied. Please choose another one.");
       }
+      //scanner.close();
     }
 
   }
-
   private int askPosition(String message) {
     int value;
 
@@ -64,20 +69,6 @@ public class Game {
         }
     }
   }
-  /*
-   * Para terminar juego:
-   * - todas las casillas llenas
-   * - un jugador gana
-   * 
-   * Para ganar:
-   * - 3 fichas iguales en horizontal, vertical, o diagonal
-   * --> cómo comprobamos:
-   * 1. si hay una ficha colocada
-   * 2. si hay 3 en raya
-   */
-
-  public void endGame() {
-
   }
 
-}
+
