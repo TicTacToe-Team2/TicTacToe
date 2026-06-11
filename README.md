@@ -1,15 +1,25 @@
-# Tic Tac Toe
+# Tic Tac Toe — Java Console Game
+
+![Static Badge](https://img.shields.io/badge/Java-25-ED8B00?logo=openjdk&logoColor=white)
+![Static Badge](https://img.shields.io/badge/Maven-4.x-C71A36?logo=apachemaven&logoColor=white)
+![Static Badge](https://img.shields.io/badge/JUnit-6.1.0-25A162?logo=junit5&logoColor=white)
 
 A console-based implementation of the classic **Tic Tac Toe (Three in a Row)** game developed in Java.
 
 Two players take turns placing their marks (**X** and **O**) on a 3x3 board. The first player to align three marks horizontally, vertically, or diagonally wins the game. If all cells are occupied and no player wins, the game ends in a draw.
 
 ---
+## Demo
+
+<p align="center">
+  <img src="assets/demo-tictactoe.gif.gif" alt="Game Demo" width="350">
+</p>
+---
 
 ## Features
 
 - Display an empty board at the start of the game
-- Turn-based gameplay (X starts first)
+- Turn-based gameplay (❌ starts first)
 - Input moves using row and column coordinates
 - Validate occupied cells
 - Detect winning conditions
@@ -42,8 +52,9 @@ src
 │
 └── test
     └── java
-        └── ...
-```
+        └── BoardTest.java
+        └── PlayerTest.java
+```.
 
 ---
 
@@ -52,7 +63,7 @@ src
 ### Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/TicTacToe-Team2/TicTacToe#
 ```
 
 ### Navigate to the project
@@ -98,11 +109,11 @@ mvn test
 
 Developed using **Mob Programming**.
 
-* Elena Almansa
-* Viviana Andrango
-* Aïda García
-* Rukayato Seidu
-* Rose Vaillant
+* [Elena Almansa](https://github.com/elenaalmansacampos)
+* [Viviana Andrango](https://github.com/alvi103-png)
+* [Aïda García](https://github.com/AidaG91)
+* [Rukayato Seidu](https://github.com/rseidu941-commits)
+* [Rose Vaillant](https://github.com/rosana50factoria)
 
 ---
 
@@ -115,3 +126,12 @@ Developed using **Mob Programming**.
 - Scanner
 - Multidimensional Arrays
 - Unit Testing
+
+---
+
+## Future improvements
+
+- Add console colors
+- Add game logs
+- Add ASCII animations
+- Allow players to start a new game without restarting the application (play again loop)
