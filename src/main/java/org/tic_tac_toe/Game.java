@@ -37,14 +37,10 @@ public class Game {
           break;
         }
 
-        // Aquí se debería comprobar si el jugador actual ha ganado
-        // Si ha ganado, se establece winner a true y se sale del bucle
-        // Si no ha ganado, se cambia al siguiente jugador
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
       } else {
         System.out.println("This position is already occupied. Please choose another one.");
       }
-      //scanner.close();
     }
 
   }
